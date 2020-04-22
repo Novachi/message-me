@@ -1,6 +1,6 @@
 <div class="ui inverted small menu">
   <div class="ui container">
-    <a class="item">
+    <a class="item" href="/chatrooms">
       Chatroom
     </a>
     <a class="item">
@@ -10,14 +10,19 @@
       <div class="ui dropdown item">
         Account <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item">Login</a>
-          <a class="item">Logout</a>
-          <a class="item">Sign up</a>
+          <% if logged_in?%>
+            <%= link_to 'Log out', logout_path, method: :delete, class: 'item'%>
+          <% else %>
+            <%= link_to 'Sign in', login_path, class: 'item' %>
+            <%= link_to 'Sign up', login_path, class: 'item'%>
+          <% end %>
         </div>
       </div>
-      <div class="item">
-          <div class="ui primary button">Sign Up</div>
-      </div>
+      <% unless logged_in? %>
+        <div class="item">
+          <%= link_to 'Sign in', login_path, class: 'ui green button' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

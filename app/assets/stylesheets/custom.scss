@@ -1,1 +1,16 @@
 @import "semantic-ui";
+
+
+.chatbox {
+  height: 600px;
+}
+
+.no-bg {
+  border: none;
+  background: black;
+}
+
+.auto-of {
+  height: 100%;
+  overflow: auto;
+}

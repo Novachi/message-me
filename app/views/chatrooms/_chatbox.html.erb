@@ -1,0 +1,19 @@
+<div class="ui fluid raised card chatbox">
+  <div class="content auto-of" id="messages">
+    <div class="ui large feed" id="messages-container">
+      <%= render @messages %>
+    </div>
+  </div>
+  <div class="extra content">
+    <%= form_for(@message, html: { class: 'ui reply form', role: 'form' }, url: messages_path, remote: true) do |f|%>
+      <div class="field">
+        <div class="ui black fluid icon input">
+          <%= f.text_field :body, { placeholder: 'Enter a message', id: 'new-message-box' }%>
+          <%= f.button class: 'no-bg', id: 'new-message-submit' do %>
+            <i class="bordered inverted icon edit"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

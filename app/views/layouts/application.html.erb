@@ -11,8 +11,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/navigation'%>
+    <%= render 'layouts/navigation' %>
     <div class="ui container">
+      <%= render 'layouts/flash_messages' %>
       <%= yield %>
     </div>
   </body>

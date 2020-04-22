@@ -1,1 +1,12 @@
-<h1>CHATROOMS</h1>
+<h4 class="ui center aligned medium icon header">
+  <i class="circular green comment alternate icon"></i>
+  Message.Me
+</h4>
+<div class="ui two column grid">
+  <div class="twelve wide column">
+    <%= render 'chatbox', messages: @messages%>
+  </div>
+  <div class="four wide column">
+    <%= render 'online_users_box' %>
+  </div>
+</div>

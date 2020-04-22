@@ -18,6 +18,36 @@
 // Loads all Semantic javascripts
 //= require semantic-ui
 
+scrollToBottom = () => {
+  let messagesElement = $('#messages');
+  if (messagesElement.length > 0) {
+    messagesElement.scrollTop(messagesElement[0].scrollHeight);
+  }
+}
+
+clearMessageBox = () => {
+  $('#new-message-box')[0].value = '';
+}
+
+submitMessageWithReturnKey = () => {
+  $('#new-message-box').on('keydown', (e) => {
+    if (e.value.lenght > 0 && e.keyCode == 13) {
+      $('#new-message-submit').click();
+      e.target.value = '';
+    }
+  });
+}
+
 $(document).on("turbolinks:load", function () {
   $(".ui.dropdown").dropdown();
+  $('.message .close')
+    .on('click', function () {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+        ;
+    });
+  scrollToBottom();
+  clearMessageBox();
+  submitMessageWithReturnKey();
 });
