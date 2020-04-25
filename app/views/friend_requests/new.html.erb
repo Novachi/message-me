@@ -1,0 +1,15 @@
+<h1 align="center">Add Friends</h1>
+<div class="ui placeholder segment">
+  <div align="center" class="ui search m-bottom-2">
+    <form action="<%= new_user_friend_request_path(current_user) %>" method="GET" class="ui icon input w-60">
+      <input name="query_string" class="prompt" type="text" placeholder="Enter username or email">
+      <i class="search icon"></i>
+    </form>
+    <div class="results"></div>
+  </div>
+  <div class="ui special cards">
+    <% @users.each do |user| %>
+      <%= render 'user_card', user: user%>
+    <% end %>
+  </div>
+</div>

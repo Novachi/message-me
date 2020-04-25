@@ -16,9 +16,8 @@ class User < ApplicationRecord
   has_one :friend_list
   has_many :user_friend_lists
   has_many :friend_lists, through: :user_friend_lists
+  has_many :users, through: :friend_list, source: :users
   has_many :friend_requests
 
-  def friends
-    friend_list.users
-  end
+  alias friends users
 end

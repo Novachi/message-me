@@ -1,7 +1,9 @@
 <div class="event">
   <div class="content">
     <div class="summary" title="<%= formatted_time(message.created_at) %>">
-      <em class='green-text'><%= message.user.username %></em>: <%= message.body %>
+      <div class="ui small message">
+        <em class='green-text'><%= message.user.username %></em>: <%= message.body %>
+      </div>
     </div>
   </div>
 </div>

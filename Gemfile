@@ -6,8 +6,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 gem 'pg'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -30,6 +30,8 @@ gem 'semantic-ui-sass'
 gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'dry-initializer'
+gem 'dry-types'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

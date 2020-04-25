@@ -47,6 +47,9 @@ $(document).on("turbolinks:load", function () {
         .transition('fade')
         ;
     });
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
   scrollToBottom();
   clearMessageBox();
   submitMessageWithReturnKey();
