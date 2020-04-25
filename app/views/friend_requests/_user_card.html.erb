@@ -3,7 +3,10 @@
     <div class="ui dimmer">
       <div class="content">
         <div class="center">
-          <div class="ui inverted button">Add Friend</div>
+          <%= form_for :friend_request, url: user_friend_requests_path do |f| %>
+            <%= f.hidden_field :user_id, value: user.id %>
+            <%= f.button 'Add Friend', { class: 'ui inverted button' } %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -16,9 +19,9 @@
     </div>
   </div>
   <div class="extra content">
-    <a>
+    <div>
       <i class="users icon"></i>
       <%= user.friends.count %> Friends
-    </a>
+    </div>
   </div>
 </div>

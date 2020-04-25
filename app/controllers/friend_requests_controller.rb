@@ -5,7 +5,22 @@ class FriendRequestsController < ApplicationController
     @users = search_for_users
   end
 
+  def create
+    unless FriendRequest.where(request_sender_id: current_user.id).first
+      FriendRequest.create(friend_request_params)
+    end
+
+    redirect_to chatrooms_path, flash: { success: 'Friend request sent!' }
+  end
+
   private
+
+  def friend_request_params
+    params
+      .require(:friend_request)
+      .permit(:user_id)
+      .merge(request_sender_id: current_user.id)
+  end
 
   def search_for_users
     if params[:query_string]
