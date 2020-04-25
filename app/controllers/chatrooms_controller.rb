@@ -5,6 +5,7 @@ class ChatroomsController < ApplicationController
 
   def index
     @message = Message.new
-    @messages = Message.custom_display
+    messages = Message.custom_display
+    @date_messages_mapping = Message.date_messages_mapping(messages)
   end
 end

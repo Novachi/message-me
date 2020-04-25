@@ -1,7 +1,12 @@
 <div class="ui fluid raised card chatbox">
   <div class="content auto-of" id="messages">
     <div class="ui large feed" id="messages-container">
-      <%= render @messages %>
+      <% @date_messages_mapping.each do |date, messages| %>
+        <div align="center"><small><%= date %></small></div>
+        <% messages.each do |message| %>
+          <%= render 'messages/message', message: message%>
+        <% end %>
+      <% end %>
     </div>
   </div>
   <div class="extra content">

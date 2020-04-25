@@ -2,6 +2,6 @@
 
 module ApplicationHelper
   def formatted_time(time)
-    time.strftime('%d/%m/%y %H:%M:%S')
+    time.strftime('%H:%M:%S')
   end
 end
