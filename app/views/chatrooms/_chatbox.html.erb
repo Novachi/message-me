@@ -3,8 +3,10 @@
     <div class="ui large feed" id="messages-container">
       <% @date_messages_mapping.each do |date, messages| %>
         <div align="center"><small><%= date %></small></div>
-        <% messages.each do |message| %>
-          <%= render 'messages/message', message: message%>
+        <% if messages.any? %>
+          <% messages.each do |message| %>
+            <%= render 'messages/message', message: message%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
