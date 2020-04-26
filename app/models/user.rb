@@ -11,9 +11,9 @@ class User < ApplicationRecord
             length: { minimum: 2 },
             uniqueness: { case_sensitive: false }
   validates :password_digest, presence: true
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
-  has_one :friend_list
+  has_one :friend_list, dependent: :destroy
   has_many :user_friend_lists
   has_many :friend_lists, through: :user_friend_lists
   has_many :users, through: :friend_list, source: :users
