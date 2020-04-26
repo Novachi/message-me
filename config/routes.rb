@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   resources :chatrooms
   resources :messages, only: %i[create]
   resources :users, only: %i[create] do
-    resources :friend_requests, only: %i[index new create destroy]
-    resource :friend_request, only: %i[] do
+    resources :friend_requests, only: %i[index new create destroy] do
       get '/accept', to: 'friend_requests#accept'
     end
   end

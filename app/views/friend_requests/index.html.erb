@@ -1,0 +1,8 @@
+<h1 align="center">Pending Friend Requests</h1>
+<div class="ui placeholder segment">
+  <div class="ui special cards">
+    <% @friend_requests.each do |friend_request| %>
+      <%= render 'friend_request_card', user: friend_request.sender, friend_request: friend_request%>
+    <% end %>
+  </div>
+</div>

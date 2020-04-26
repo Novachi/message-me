@@ -4,9 +4,16 @@
         <div align="center" class="active item disabled">
           <strong>Friends</strong>
         </div>
-        <a class="item">
-          Messages
-        </a>
+        <% if current_user.friend_requests.any? %>
+          <%= link_to user_friend_requests_path(current_user), { class: 'item' } do %>
+            <i class="users icon"></i><small>You have <%= pluralize(current_user.friend_requests.count, 'Friend Request') %></small>
+          <% end %>
+        <% end %>
+        <% current_user.friends.each do |friend| %>
+          <a class="item">
+            <%= friend.username %>
+          </a>
+        <% end %>
         <%= link_to '<i class="user plus icon"></i> Add a Friend'.html_safe, new_user_friend_request_path(current_user), { class: 'item' } %>
       </div>
   </div>

@@ -3,10 +3,8 @@
     <div class="ui dimmer">
       <div class="content">
         <div class="center">
-          <%= form_for :friend_request, url: user_friend_requests_path do |f| %>
-            <%= f.hidden_field :user_id, value: user.id %>
-            <%= f.button 'Add Friend', class: 'ui inverted button' %>
-          <% end %>
+          <%= link_to 'Accept', user_friend_request_accept_path(user, friend_request), class: 'm-bottom-10px ui inverted green button' %>
+          <%= link_to 'Decline', user_friend_request_path(user, friend_request), method: :delete, class: 'ui inverted red button' %>
         </div>
       </div>
     </div>
