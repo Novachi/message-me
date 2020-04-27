@@ -2,9 +2,10 @@
 
 class Message < ApplicationRecord
   belongs_to :user
+  belongs_to :chatroom
   validates :body, presence: true
 
-  scope :custom_display, -> { order(:created_at).last(20) }
+  scope :custom_display, -> { order(:created_at).last(200) }
 
   def self.date_messages_mapping(messages)
     dates = messages.pluck(:created_at).map { |time| time.strftime('%d/%m/%Y') }.uniq

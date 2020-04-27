@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_105845) do
+ActiveRecord::Schema.define(version: 2020_04_27_114057) do
 
   create_table "chatrooms", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_04_27_105845) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "chatroom_id"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
