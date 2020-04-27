@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :friend_lists, through: :user_friend_lists
   has_many :users, through: :friend_list, source: :users
   has_many :friend_requests
+  has_and_belongs_to_many :chatrooms
 
   alias friends users
 end
