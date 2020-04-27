@@ -21,6 +21,7 @@ class FriendRequestsController < ApplicationController
   def accept
     friend_request = FriendRequest.find(params[:friend_request_id])
     update_friend_lists(friend_request)
+    create_chatroom(friend_request)
     friend_request.destroy
 
     redirect_to user_friend_requests_path(current_user),
@@ -35,6 +36,12 @@ class FriendRequestsController < ApplicationController
   end
 
   private
+
+  def create_chatroom(friend_request)
+    return if Chatroom.for_users([friend_request.sender.id, current_user.id])
+
+    Chatroom.create.users << [friend_request.sender, current_user]
+  end
 
   def update_friend_lists(friend_request)
     current_user.friend_list.users << friend_request.sender

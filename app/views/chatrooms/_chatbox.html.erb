@@ -15,6 +15,7 @@
     <%= form_for(@message, html: { class: 'ui reply form', role: 'form' }, url: messages_path, remote: true) do |f|%>
       <div class="field">
         <div class="ui black fluid icon input">
+          <%= f.hidden_field :chatroom_id, value: @chatroom.id%>
           <%= f.text_field :body, { placeholder: 'Enter a message', id: 'new-message-box' }%>
           <%= f.button class: 'no-bg', id: 'new-message-submit' do %>
             <i class="bordered inverted icon edit"></i>

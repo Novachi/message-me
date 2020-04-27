@@ -10,9 +10,9 @@
           <% end %>
         <% end %>
         <% current_user.friends.each do |friend| %>
-          <a class="item">
+          <%= link_to chatroom_path(Chatroom.for_users([friend.id, current_user.id])), class: 'item' do %>
             <%= friend.username %>
-          </a>
+          <% end %>
         <% end %>
         <%= link_to '<i class="user plus icon"></i> Add a Friend'.html_safe, new_user_friend_request_path(current_user), { class: 'item' } %>
       </div>

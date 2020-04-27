@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/register', to: 'users#new'
 
-  resources :chatrooms
+  resources :chatrooms, only: %i[index show]
   resources :messages, only: %i[create]
   resources :users, only: %i[create] do
     resources :friend_requests, only: %i[index new create destroy] do

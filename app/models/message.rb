@@ -2,7 +2,7 @@
 
 class Message < ApplicationRecord
   belongs_to :user
-  belongs_to :chatroom
+  belongs_to :chatroom, touch: true
   validates :body, presence: true
 
   scope :custom_display, -> { order(:created_at).last(200) }
