@@ -31,7 +31,7 @@ clearMessageBox = () => {
 
 submitMessageWithReturnKey = () => {
   $('#new-message-box').on('keydown', (e) => {
-    if (e.value.lenght > 0 && e.keyCode == 13) {
+    if (e.keyCode == 13) {
       $('#new-message-submit').click();
       e.target.value = '';
     }
